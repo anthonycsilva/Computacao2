@@ -1,7 +1,8 @@
 def artilheiros():
+    #Função que cria e instancia a matriz de jogadores
     matrizJogadores = [
                 ['Anthony Perna Mansa',5,18],
-                ['Samarinha Pé elétrico',6,10],
+                ['Samarainha',6,10],
                 ['Diego Beionce',4,12],
                 ['Voldollar',7,14],
                 ['Shrek Ninja',3,32],
@@ -11,6 +12,7 @@ def artilheiros():
 
 
 def mediaGols(matrizJogadores):
+#função que tira a média de gols dos jogadores por partida
     for jogador in range(len(matrizJogadores)):
         media = (matrizJogadores[jogador][2]/matrizJogadores[jogador][1])
         media = round(media, 2)
@@ -19,6 +21,7 @@ def mediaGols(matrizJogadores):
 
 
 def chuteiraOuro():
+#função principal para deduzir qual foi o melhor jogar com base na sua média de gols por partida, porém somente se o jogador saiu das classificatórias 
     matrizJogadores = artilheiros()
     mediaGols(matrizJogadores)
 

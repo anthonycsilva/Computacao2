@@ -1,8 +1,6 @@
-#PRIMEIRO PEPINO, CRIAR UMA MATRIZ COM AS TABLEAS PARA O BINGO
-#NUMEROS RANDOMS DE 1 A 60, SENDO QUE VOU FAZER ELAS DISTRIBUIDAS 2 X 3 ( 2 LINHAS PARA 3 COLUNAS )
 import random
-##[0 for linha in range(1,4)],[0 for coluna in range(1,4)]
 def criaCartela(quantidade, cartelas):
+#Essa função cria a cartela, porém somente com numeros 0 em todas suas linhas e colunas
     i = 0
     while i < quantidade:
         cartelas.append([[0 for c in range(1,4)],[0 for l in range(1,4)],[0 for p in range(0,1)]])
@@ -11,6 +9,7 @@ def criaCartela(quantidade, cartelas):
 
 
 def adicionaNumero(cartelas):
+#Essa função adiciona numeros aleatórios de 1 até 60 nas linhas e colunas da cartela
     for cartela in range(0,len(cartelas)):
         for coluna in range(0,2):
             for linha in range(0,3):
@@ -19,6 +18,7 @@ def adicionaNumero(cartelas):
 
 
 def analisaCartela(cartelas):
+#Essa função analisa se o numero da cartela atual, bate com um numero sorteado que vai de 1 até 60
     for cartela in range(0, len(cartelas)):
         for coluna in range(0,2):
             for linha in range(0,3):
@@ -27,6 +27,7 @@ def analisaCartela(cartelas):
     return cartelas
 
 def verificaSorteio():
+#Função principal
     cartelas = list()
     cartelas = criaCartela(5, cartelas)
     cartelas = adicionaNumero(cartelas)
@@ -48,6 +49,4 @@ def verificaSorteio():
                         
 
 verificaSorteio()
-
-#adicionaNumero(cartelas)
-#print(verificaSorteio(cartelas))
+#Todas as funções trabalham com a mesma variável porém a modificam conforme forem chamadas durante a execução

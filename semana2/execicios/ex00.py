@@ -1,58 +1,48 @@
-#01: Fazer a classe Pilha, usar o método construtor (famoso _init_)
-
-class Pilha:
-    def __init__(self,elements = list()):
-        if type(elements) == list:
-            self.elements = elements.copy()
-            print(f'Lista Instanciada: {self.elements}')
+class Pilha():
+    def __init__(self, lista):
+        if type(lista) == list:
+            self.lista = lista
+            print(f'Lista Instanciada com Sucesso. {self.lista}')
         else:
-            self.elements = list()
-            print(f'Erro, o elemento n era uma lista, mas agora é! : {self.elements}')
-
- #02: Criar o método Empilhar, colocando coisas na Pilha
-
-    def empilhar(self, element):
-        added = self.elements.append(element)
-        print(f'Elemento Adicionado: {element}')
-        return None
-
-#03: Criar o método Desempilhar, retirando os elementos da Pilha
-
+            self.lista = list()
+            print(f'Erro, O input não era uma lista. {self.lista}')
+    
+    def empilhar(self, elemento):
+        self.lista.append(elemento)
+        print(f'Elemento Empilhado: {elemento}. {self.lista}')
+    
     def desempilhar(self):
-        removed = self.elements.pop()
-        print(f'Elemento Retirado: {removed}')
-        return None
+        if len(self.lista) == 0:
+            print('Erro, Lista Vazia!')
+        else:
+            elemento = self.lista.pop()
+            print(f'Elemento Removido da Pilha: {elemento}. {self.lista}')
 
-#04: Criar o método getPilha, para retornar os elementos da pilha
-
+    
     def getPilha(self):
-        print(f'{self.elements}')
-        return self.elements
+        print(self.lista)
+    
+    def lenPilha(self):
+        print(len(self.lista))
 
+    def __add__(self, elemento):
+        resultado = self.lista + elemento.lista
+        return resultado
+    def __len__(self):
+    #Professora, eu estava estudando sobre esses dunders, e queria testar esse do len. Por isso coloquei aqui
+        return len(self.lista)
 
-#05: Criar o método lenPilha, para saber o tamanho da pilha
-
-    def getLen(self):
-        print(f'Tamanho da Lista: {len(self.elements)}')
-        
-#06: Criar o método somaPilha, juntando duas pilhas em uma
-
-
-    def __add__(self, lista):
-        result = self.elements + lista.elements
-        return result
-
-
+#Teste de execução
 
 pilha1 = Pilha([1,7,9])
-pilha2 = Pilha([4,10])
+pilha2 = Pilha(3)
+pilha2.empilhar(4)
+pilha2.empilhar(10)
 pilha2.getPilha()
 pilha2.desempilhar()
-pilha2.getPilha()
+pilha2.desempilhar()
+pilha2.desempilhar()
 pilha2.empilhar(5)
-pilha2.getPilha()
-
-pilha3 = Pilha(pilha2 + pilha1)
-pilha4 = Pilha(pilha1 + pilha2)
-
-pilha2.getLen()
+pilha3 = Pilha(pilha1+pilha2)
+pilha3.lenPilha()
+print(len(pilha3))

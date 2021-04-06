@@ -27,7 +27,7 @@ class Pilha():
 
     def __add__(self, elemento):
         resultado = self.lista + elemento.lista
-        return resultado
+        return Pilha(resultado)
     def __len__(self):
     #Professora, eu estava estudando sobre esses dunders, e queria testar esse do len. Por isso coloquei aqui
         return len(self.lista)
@@ -43,6 +43,6 @@ pilha2.desempilhar()
 pilha2.desempilhar()
 pilha2.desempilhar()
 pilha2.empilhar(5)
-pilha3 = Pilha(pilha1+pilha2)
+pilha3 = pilha1+pilha2
 pilha3.lenPilha()
 print(len(pilha3))

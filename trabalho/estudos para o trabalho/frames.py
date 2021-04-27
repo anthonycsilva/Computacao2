@@ -3,6 +3,8 @@ from tkinter import messagebox
 from tkinter import filedialog
 
 principal = Tk()
+principal.title('<<<<LOGO FODA')
+principal.iconbitmap('D:/Users/antho/Documents/Python Stuff/comp2/trabalho/principal/imagens/logoicon.ico')
 
 quadrante = LabelFrame(principal, text ="Quadrante foda...", padx=5,pady=5)
 quadrante.pack(padx=10, pady=10)
@@ -11,8 +13,16 @@ quadrante.pack(padx=10, pady=10)
 numero = StringVar()
 
 
-def clicado(valor):
-    frase = Label(quadrante, text=numero.get())
+
+
+
+def clicado1():
+    frase = Label(quadrante, text='BESTO FRENDO')
+    frase.pack()
+
+
+def clicado2():
+    frase = Label(quadrante, text='ESTOU DECEPCIONADO')
     frase.pack()
 
 
@@ -26,11 +36,10 @@ def selecionaCaminho():
     Label(quadrante, text=caminho).pack()
 
 
-botao_caminho = Button(quadrante, text='Selecione a pasta que deseja ', command=selecionaCaminho).pack()
+botao_caminho = Button(quadrante, text='Selecione a pasta que deseja ', command=selecionaCaminho)
 
 
-frase = Label(quadrante, text='Quem é vc??').pack()
-Radiobutton(quadrante, text='Eu Jogo Potemkin', variable=numero, value='Besto Friendo', command=lambda: clicado(numero.get())).pack()
-Radiobutton(quadrante, text='Eu jogo de Jack-O', variable=numero, value='Deve ser mt triste viver sozinho, continue assim', command=lambda: clicado(numero.get())).pack()
-
+frase = Label(quadrante, text='Qual tipo de mulher vc prefere??').pack()
+botao1 = Button(quadrante, text='Alta e com Bunda Grande', command=clicado1).pack()
+botao2 = Button(quadrante, text='Qualquer outro tipo', command=clicado2).pack()
 principal.mainloop()

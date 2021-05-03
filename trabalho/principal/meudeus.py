@@ -20,60 +20,70 @@ selecione_nome_pasta = Label(quadrante, text='Escolha o nome de suas pastas:').g
 
 Label(quadrante, text='Executáveis:').grid(row=8, column=1)
 tela1 = Entry(quadrante, width=15)
+tela1.insert(0, 'Executáveis')
 tela1.grid(row=8, column=3)
 
 #executaveis
 
 Label(quadrante, text='PDF:').grid(row=9, column=1)
 tela2 = Entry(quadrante, width=15)
+tela2.insert(0, 'PDF')
 tela2.grid(row=9, column=3)
 
 #executaveis
 
-Label(quadrante, text='Compactados').grid(row=10, column=1)
+Label(quadrante, text='Compactados:').grid(row=10, column=1)
 tela3 = Entry(quadrante, width=15)
+tela3.insert(0, 'Compactados')
 tela3.grid(row=10, column=3)
 
 #executaveis
 
-Label(quadrante, text='Imagens').grid(row=11, column=1)
+Label(quadrante, text='Imagens:').grid(row=11, column=1)
 tela4 = Entry(quadrante, width=15)
+tela4.insert(0, 'Imagens')
 tela4.grid(row=11, column=3)
 
 #executaveis
 
-Label(quadrante, text='Videos').grid(row=12, column=1)
+Label(quadrante, text='Videos:').grid(row=12, column=1)
 tela5 = Entry(quadrante, width=15)
+tela5.insert(0, 'Videos')
 tela5.grid(row=12, column=3)
 
 #executaveis
 
-Label(quadrante, text='Musicas').grid(row=13, column=1)
+Label(quadrante, text='Musicas:').grid(row=13, column=1)
 tela6 = Entry(quadrante, width=15)
+tela6.insert(0, 'Musicas')
 tela6.grid(row=13, column=3)
 
 #executaveis
 
-Label(quadrante, text='Textos').grid(row=14, column=1)
+Label(quadrante, text='Textos:').grid(row=14, column=1)
 tela7 = Entry(quadrante, width=15)
+tela7.insert(0, 'Textos')
 tela7.grid(row=14, column=3)
 
 #executaveis
 
-Label(quadrante, text='Planilhas').grid(row=15, column=1)
+Label(quadrante, text='Planilhas:').grid(row=15, column=1)
 tela8 = Entry(quadrante, width=15)
+tela8.insert(0, 'Planilhas')
 tela8.grid(row=15, column=3)
 
 #executaveis
 
-Label(quadrante, text='Slides PowerPoint').grid(row=16, column=1)
+Label(quadrante, text='Slides PowerPoint:').grid(row=16, column=1)
 tela9 = Entry(quadrante, width=15)
+tela9.insert(0, 'Slides')
 tela9.grid(row=16, column=3)
 
 #executaveis
 
-Label(quadrante, text='Extras').grid(row=17, column=1)
+Label(quadrante, text='Extras:').grid(row=17, column=1)
 tela10 = Entry(quadrante, width=15)
+tela10.insert(0, 'Extras')
 tela10.grid(row=17, column=3)
 
 #metodos:
@@ -108,10 +118,10 @@ def organizador():
 
     EXEC_DIR = os.path.join(pasta, tela1.get())
     PDF_DIR = os.path.join(pasta, tela2.get())
-    IMG_DIR = os.path.join(pasta, tela3.get())
-    VID_DIR = os.path.join(pasta, tela4.get())
-    MU_DIR = os.path.join(pasta, tela5.get())
-    ZIP_DIR = os.path.join(pasta, tela6.get())
+    IMG_DIR = os.path.join(pasta, tela4.get())
+    VID_DIR = os.path.join(pasta, tela5.get())
+    MU_DIR = os.path.join(pasta, tela6.get())
+    ZIP_DIR = os.path.join(pasta, tela3.get())
     DOC_DIR = os.path.join(pasta, tela7.get())
     PLA_DIR = os.path.join(pasta, tela8.get())
     PP_DIR = os.path.join(pasta, tela9.get())
@@ -140,6 +150,17 @@ def organizador():
 
 
     arquivos = os.listdir(pasta)
+    arquivo = open("log.txt", "a")
+    arquivo.write(f'\n {tela1.get()}')
+    arquivo.write(f'\n {tela2.get()}')
+    arquivo.write(f'\n {tela3.get()}')
+    arquivo.write(f'\n {tela4.get()}')
+    arquivo.write(f'\n {tela5.get()}')
+    arquivo.write(f'\n {tela6.get()}')
+    arquivo.write(f'\n {tela7.get()}')
+    arquivo.write(f'\n {tela8.get()}')
+    arquivo.write(f'\n {tela9.get()}')
+    arquivo.write(f'\n {tela10.get()}')
     nova_pasta = ''
     #if os.path.isfile(os.path.join(diretorio, arquivo)):
     for i in arquivos:
@@ -168,6 +189,8 @@ def organizador():
             
             shutil.move(os.path.join(pasta, i), os.path.join(nova_pasta, i))   
             print(f'Arquivo: {i}, movido para: {os.path.join(nova_pasta,i)}')
+            arquivo.write(f'\n Arquivo: {i}, movido para: {os.path.join(nova_pasta,i)}')
+    Label(quadrante, text='Arquivos Salvos no log. Junto ao programa').grid(row=19, column=2)
 
 
 frase_selecione = Label(quadrante, text='Selecione a pasta que você deseja organizar:').grid(row=1, column=2)
@@ -179,4 +202,3 @@ botao_seleciona_pasta = Button(quadrante, text='Selecione...', width=30, command
 botao_master = Button(quadrante, text='Organizar', width=30, command=organizador).grid(row=18, column=2)
 
 principal.mainloop()
-

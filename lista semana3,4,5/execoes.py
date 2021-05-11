@@ -12,6 +12,8 @@ def div():
     numerador = float(input('Digite o Numerador: '))
     denominador = float(input('Digite o Denominador: '))
 
+    
+
     if numerador ==0:
         raise NumeradorZero('A Questão pede que o numerador deve ser diferente de ZERO')
 
@@ -32,6 +34,8 @@ def div():
 def testa():
     try:
         div()
+    except ValueError:
+        print('Erro no valor digitado')
     except NumeradorZero:
         print('A questão pede que o numerador seja diferente de ZERO')
     except ZeroDivisionError:

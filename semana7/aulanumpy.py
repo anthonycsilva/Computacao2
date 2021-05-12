@@ -9,9 +9,6 @@ y = np.array([[1.,0.,0.], [0.,1.,2.]]) #criando uma array com 2 dimensoes, linha
                                         #tipo: numpy.ndarray
 
 
-print(x)
-print(y)
-
 print(y[0])#acessa o primeiro eixo 
 print(y[1])#acessa o segundo eixo
 
@@ -22,4 +19,3 @@ print(y.shape) #retona as dimensoes do array, como tupla
 
 print(type(y))
 
-#parei a aula 7 no 20:36

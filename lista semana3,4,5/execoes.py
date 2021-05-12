@@ -32,16 +32,20 @@ def div():
 
 
 def testa():
-    try:
-        div()
-    except ValueError:
-        print('Erro no valor digitado')
-    except NumeradorZero:
-        print('A questão pede que o numerador seja diferente de ZERO')
-    except ZeroDivisionError:
-        print('O denominador deve ser diferente de 0')
-    except NumeroPar:
-        print('A questão pede que o resultado não seja PAR')
+    comando = True
+    while comando == True:
+        try:
+            div()
+        except ValueError:
+            print('Erro no valor digitado')
+        except NumeradorZero:
+            print('A questão pede que o numerador seja diferente de ZERO')
+        except ZeroDivisionError:
+            print('O denominador deve ser diferente de 0')
+        except NumeroPar:
+            print('A questão pede que o resultado não seja PAR')
+        else:
+            comando = False
 
 
 testa()

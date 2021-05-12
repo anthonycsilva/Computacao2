@@ -17,5 +17,4 @@ print(y[1][2]) #acessando um elemento específico
 
 print(y.shape) #retona as dimensoes do array, como tupla
 
-print(type(y))
 
